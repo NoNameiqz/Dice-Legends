@@ -6,8 +6,26 @@ typedef struct{
     int estado;
 }dado;
 
-void jogar(int x,char j1[], char j2[],dado dados[]){
-    int i,op1=0,re_roll=0,op2=0;
+int somarpontos_ronda(int v[]){
+  int presente[6] = {0};
+  int i,soma=0;
+    // Percorre o vetor dado e marca os números presentes
+    for (i = 0; i < 6; i++) {
+        if (v[i] >= 1 && v[i] <= 6) {
+            presente[v[i] - 1] = 1; // Marca como presente
+        }
+    }
+    // Verifica quais números não estão presentes e soma os ausentes
+    for (i = 0; i < 6; i++) {
+        if (presente[i] == 0) { // Se não está marcado, está ausente
+            soma += (i + 1); // Soma o valor correspondente (índice + 1)
+        }
+    }
+  return soma;
+}
+
+int jogar(int x,char j1[], char j2[],dado dados[]){
+    int i,op1=0,re_roll=0,op2=0,soma,valores[6];
     srand(time(NULL));
 
     for (i = 0; i < 6; i++) {
@@ -28,12 +46,14 @@ void jogar(int x,char j1[], char j2[],dado dados[]){
           do{
             printf("--> ");
             scanf("%d",&op2);
+            getchar();
             if(op2 > 0 && op2 <= 6){
               dados[op2-1].estado = 1;
             }
           }while(op2 != 0);
           printf("Deseja lançar de novo os dados? \n(0- Nao 1- Sim )\n--> ");
           scanf("%d",&op1);
+          getchar();
           re_roll++;
           if(re_roll >= 3){
             op1=0;
@@ -49,11 +69,15 @@ void jogar(int x,char j1[], char j2[],dado dados[]){
             }
         }
     }
-    getchar();
+    for(i=0;i<6;i++){
+      valores[i] = dados[i].valor;
+    }
+    
+    return soma = somarpontos_ronda(valores);
 }
 
 int main(){
-    int turno=1,i,tabela[2][20];
+    int turno=1,i,tabela[2][20],pontos=0;
     char p1[30], p2[30];
     dado dados[6];
     
@@ -64,7 +88,9 @@ int main(){
     getchar();
     
     for(i=0;i<40;i++){
-        jogar(turno,p1,p2,dados);
+        pontos = jogar(turno,p1,p2,dados);
+        printf("Pontos: %d\n",pontos);
+        getchar();
         turno *= -1;
     }
     
