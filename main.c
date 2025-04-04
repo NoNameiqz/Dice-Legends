@@ -11,12 +11,12 @@ typedef struct {
     bool estado;
 } DADOS;
 
-// FunÃ§Ã£o para somar os pontos da ronda
+// Função para somar os pontos da ronda
 int somarpontos_ronda(int v[]) {
     int presente[6] = { 0 };
     int i, soma = 0;
 
-    // Percorre o vetor de valores e marca os nÃºmeros presentes
+    // Percorre o vetor de valores e marca os números presentes
     for (i = 0; i < 5; i++) {
         if (v[i] >= 1 && v[i] <= 6) {
             presente[v[i] - 1] = 1; // Marca como presente
@@ -25,7 +25,7 @@ int somarpontos_ronda(int v[]) {
 
     // Soma os valores ausentes
     for (i = 0; i < 6; i++) {
-        if (presente[i] == 0) { // Se nÃ£o estÃ¡ marcado, estÃ¡ ausente
+        if (presente[i] == 0) { // Se não está marcado, está ausente
             soma += (i + 1); // Soma o valor correspondente
         }
     }
@@ -33,7 +33,7 @@ int somarpontos_ronda(int v[]) {
     return soma;
 }
 
-// FunÃ§Ã£o para jogar uma ronda
+// Função para jogar uma ronda
 int jogar(int x, char j1[], char j2[], DADOS dados[]) {
     int i, op1 = 1, re_roll = 0, op2 = 0, soma, valores[5];
 
@@ -358,7 +358,7 @@ void carregarVetorEValor(int tabela[][20], int *N,int *turno,int *ronda) {
     printf("Jogo carregado de save.txt\n");
 }
 
-// FunÃ§Ã£o principal
+// Função principal
 int main() {
     int turno = 1, i, pontos = 0, ronda = 1, op = 0, tabelapontos[2][20] = { 0 },pts_final_p1,pts_final_p2,N=40;
     char p1[30], p2[30];

@@ -1,0 +1,41 @@
+Regras do Jogo
+
+Objetivo:
+
+Atingir a maior pontuacao possivel tentando pontuar todas as pontuacoes possiveis entre 1 e 20 pontos e/ou obter os bonus possiveis.
+
+Ronda:
+
+Na sua vez, um jogador rola os dados disponiveis (no primeiro lancamento sao sempre os 5 dados).
+
+De seguida, o jogador tem as opcoes de:
+
+Parar de lancar os dados.
+
+Reservar alguns dos dados e tornar a lancar os restantes (pode fazer isto no maximo duas vezes).
+
+Se o jogador decidir lancar alguns dados de novo, repetem-se os passos descritos acima com os dados pretendidos.
+
+O jogador calcula a sua pontuacao e escolhe:
+
+A pontuacao obtida (para pontuar).
+
+Uma qualquer pontuacao ainda nao usada para inutilizar.
+
+Nota: Cada pontuacao da tabela apenas pode ser utilizada uma vez.
+
+Contagem dos Pontos:
+
+A pontuacao de uma jogada e obtida pela soma dos valores que nao estao visiveis nos dados deste turno.
+
+Exemplo: Com os dados 2, 4, 4, 5 e 6, obtem-se uma pontuacao de 4 valores:
+
+Valores ausentes: 1 e 3.
+
+Soma dos valores ausentes: 1 + 3 = 4 pontos.
+
+Fim do Jogo:
+
+O jogo termina apos 20 rondas, ou seja, apos todas as posicoes da tabela terem sido usadas ou inutilizadas.
+
+Quem no final desta ronda tiver mais pontos, ganha!
